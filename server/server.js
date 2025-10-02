@@ -1,12 +1,13 @@
 import express from "express";
 import giftsRouter from "./routes/gifts.js";
 import "./config/dotenv.js";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 
 // Middleware to serve static files
-app.use("/public", express.static("./public"));
-app.use("/scripts", express.static("./public/scripts"));
+
 app.use("/gifts", giftsRouter);
 
 // Route for the root URL
